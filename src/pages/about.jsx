@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -21,13 +20,7 @@ const AboutPage = ({ data }, location) => {
             Clean, minimal, and deeply customisable. London is a theme made for
             people who appreciate simple lines.
           </h2>
-          <figure className='kg-card kg-image-card kg-width-full'>
-            <Img
-              fluid={data.benchAccounting.childImageSharp.fluid}
-              className='kg-image'
-            />
-            <figcaption>Large imagery is at the heart of this theme</figcaption>
-          </figure>
+
           <h3 id='dynamic-styles'>Dynamic styles</h3>
           <p>
             London comes with photo-centric main layout best suited to
