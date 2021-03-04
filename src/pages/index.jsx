@@ -71,29 +71,6 @@ const indexQuery = graphql`
         description
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM D, YYYY")
-            title
-            description
-            tags
-            thumbnail {
-              childImageSharp {
-                fluid(maxWidth: 1360) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   }
 `;
 

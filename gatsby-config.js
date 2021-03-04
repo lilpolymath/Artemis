@@ -1,5 +1,5 @@
-const urljoin = require("url-join")
-const siteConfig = require("./siteConfig")
+const urljoin = require('url-join');
+const siteConfig = require('./siteConfig');
 
 module.exports = {
   siteMetadata: {
@@ -12,20 +12,6 @@ module.exports = {
     },
   },
   plugins: [
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
-      },
-    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -58,10 +44,10 @@ module.exports = {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [
-          require("postcss-easy-import")(),
-          require("postcss-custom-properties")({ preserve: false }),
-          require("postcss-color-function")(),
-          require("autoprefixer")({ browserlist: ["last 2 versions"] }),
+          require('postcss-easy-import')(),
+          require('postcss-custom-properties')({ preserve: false }),
+          require('postcss-color-function')(),
+          require('autoprefixer')({ browserlist: ['last 2 versions'] }),
         ],
       },
     },
@@ -73,7 +59,7 @@ module.exports = {
         // tailwind: true, // Enable tailwindcss support
         // whitelist: ['whitelist'], // Don't remove this selector
         ignore: ['/ignored.css', 'prismjs/', '/prism.css', 'docsearch.js/'], // Ignore files/folders
-        purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+        purgeOnly: ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
       },
     },
     {
@@ -92,7 +78,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `static/loki.png`,
       },
     },
     // `gatsby-plugin-netlify`,
@@ -100,4 +86,4 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-sass',
   ],
-}
+};
