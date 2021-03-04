@@ -1,9 +1,10 @@
 module.exports = {
-  name: 'London Night and Day',
+  name: 'Bolaji Olajide',
   shortName: '',
-  description: 'A bold, minimal theme for Gatsby, focused on clean typography & beautiful imagery',
-  url: 'https://www.jooplaan.com', // Domain of your site without prefix!
+  description:
+    'I’m a Product Designer and Frontend Engineer based in Lagos, Nigeria. I also love to sing covers, make music and try new things.',
+  url: 'https://bolaji.de', // Domain of your site without prefix!
   prefix: '/',
-  author: 'jooplaan',
-  twitter: ''
-}
+  author: 'bolaji',
+  twitter: '',
+};

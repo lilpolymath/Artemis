@@ -7,31 +7,53 @@ production stylesheet in assets/built/screen.scss using gulp dev
 
 /* Lib - Local component imports
 /* ---------------------------------------------------------- */
-@import "vars.scss";
-@import "components/global.scss";
-@import "components/ghost.scss";
-@import "components/lists.scss";
-@import "components/grid.scss";
-@import "components/tables.scss";
-@import "components/forms.scss";
-@import "components/buttons.scss";
-@import "components/actions.scss";
-@import "components/hamburger.scss";
-@import "components/animations.scss";
-@import "components/prism.scss";
+@import 'vars.scss';
+@import 'components/global.scss';
+@import 'components/ghost.scss';
+@import 'components/lists.scss';
+@import 'components/grid.scss';
+@import 'components/tables.scss';
+@import 'components/forms.scss';
+@import 'components/buttons.scss';
+@import 'components/actions.scss';
+@import 'components/hamburger.scss';
+@import 'components/animations.scss';
+@import 'components/prism.scss';
 
 /* Main - Theme styles
 /* ---------------------------------------------------------- */
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::selection {
+  text-shadow: none;
+  background: #cbeafb;
+}
+
 body {
+  overflow-x: hidden;
   font-family: $font-sans-serif;
-  background: $color-bg;
+  background-color: $color-bg;
+  color: $color-body-font;
+  font-size: 1rem;
   transition: background 0.3s ease-out;
   transition-delay: 0.25;
-  @include light-mode {
-    background: $color-bg-light;
-    color: $color-base-light-inverted;
-  }
+}
+
+main {
+  min-height: 100vh;
+  border-left: 1px solid $color-body-font;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: auto;
+  padding: 0 1rem;
 }
 
 .img {
@@ -53,24 +75,18 @@ body {
 /* ---------------------------------------------------------- */
 
 .site-wrapper {
-  padding: 3vw;
+  padding: 0 7.5%;
   min-height: 100vh;
 }
+
 @media (max-width: 850px) {
   .site-wrapper {
-    padding: 6vw;
+    padding: 0 10%;
   }
 }
 
 .page-head {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 13vw 0;
-  max-width: 70%;
-  margin: auto;
-  text-align: center;
+  padding: 15vw 0 10vw;
 }
 
 .error-head {
@@ -100,12 +116,10 @@ body {
 
 .page-head-title {
   margin: 0;
-  font-size: 4.2rem;
+  font-size: 3rem;
   color: $color-body-font;
-  @include light-mode {
-    color: $color-body-font-light;
-  }
 }
+
 @media (max-width: 500px) {
   .page-head-title {
     font-size: 2rem;
@@ -113,16 +127,10 @@ body {
 }
 
 .page-head-description {
-  margin: 0 0 1.6vw;
-  color: color($color-border l(-20%));
-  font-size: 2.2rem;
+  margin: 1.5rem 0;
+  font-size: 1.375rem;
   line-height: 1.35em;
-}
-
-@media (max-width: 500px) {
-  .page-head-description {
-    font-size: 1.6rem;
-  }
+  max-width: 560px;
 }
 
 .site-foot {
@@ -134,9 +142,6 @@ body {
 
 .site-foot a {
   color: $color-body-font;
-  @include light-mode {
-    color: $color-body-font-light;
-  }
 }
 
 /* Site Navigation
@@ -185,9 +190,6 @@ body {
   color: $color-body-font;
   font-weight: 600;
   opacity: 0.6;
-  @include light-mode {
-    color: $color-body-font-light;
-  }
 }
 
 .nav-current a,
@@ -215,9 +217,6 @@ body {
   letter-spacing: 1px;
   overflow: hidden;
   text-overflow: ellipsis;
-  @include light-mode {
-    color: $color-body-font-light;
-  }
 }
 
 .site-head-logo:hover {
@@ -531,13 +530,13 @@ body {
 
 @media (max-width: 1200px) {
   .post-card.no-image .post-card-title {
-    font-size: 3.4rem;
+    font-size: 2rem;
   }
   .post-card.no-image .post-card-date,
   .post-card.no-image .post-card-body,
   .post-card.no-image .post-card-readmore,
   .post-card.no-image .post-card-tag-link {
-    font-size: 1.4rem;
+    font-size: 0.875rem;
   }
 }
 @media (max-width: 940px) {
@@ -584,25 +583,19 @@ body {
   margin: 0 0 3vw;
   color: $color-body-font;
   text-align: center;
-  @include light-mode {
-    color: $color-body-font-light;
-  }
 }
 
 .post-content-excerpt {
   margin: -2vw 0 3vw;
-  font-size: 2.2rem;
+  font-size: 1.375rem;
   line-height: 1.6em;
   color: $color-body-font;
   text-align: center;
   opacity: 0.7;
-  @include light-mode {
-    color: $color-body-font-light;
-  }
 }
 @media (max-width: 500px) {
   .post-content-excerpt {
-    font-size: 1.8rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -617,12 +610,12 @@ body {
 }
 
 .post-content-body {
-  font-size: 1.9rem;
+  font-size: 1.25rem;
   line-height: 1.65em;
 }
 @media (max-width: 500px) {
   .post-content-body {
-    font-size: 1.7rem;
+    font-size: 1rem;
   }
 }
 
@@ -633,9 +626,6 @@ body {
 .post-content-body h5,
 .post-content-body h6 {
   color: $color-body-font;
-  @include light-mode {
-    color: $color-body-font-light;
-  }
 }
 
 .post-content-body li {
@@ -694,9 +684,6 @@ body {
   line-height: 1.5em;
   background: $color-bg-dark !important;
   border-radius: 5px;
-  // @include light-mode {
-  //   color: $color-body-font-light;
-  // }
 }
 
 .post-content-body pre code {
@@ -719,7 +706,7 @@ body {
 }
 
 .post-content-body hr:after {
-  content: "";
+  content: '';
   position: absolute;
   top: -15px;
   left: 50%;
@@ -853,4 +840,92 @@ body {
   max-width: 70%;
   margin: auto;
   text-align: center;
+}
+
+/* Navigation
+/* ---------------------------------------------------------- */
+
+.links {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 4.5px;
+  background-color: inherit;
+  backface-visibility: hidden;
+  z-index: 3;
+  position: relative;
+  padding-bottom: 2rem;
+
+  @media (min-width: 800px) {
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 16px);
+      left: 50%;
+      width: 100vw;
+      height: 1px;
+      background-color: #344678;
+      transform: translatex(-50%);
+      z-index: -1;
+    }
+  }
+
+  a {
+    width: 100%;
+    padding: 1rem;
+    text-align: left;
+    color: #344678;
+    font-size: 1.125rem;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    background-color: $color-bg;
+    transition: all ease 400ms;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $color-body-font;
+      color: #ffffff;
+      text-decoration: none;
+
+      svg {
+        opacity: 1;
+        transform: translate(4px, -12px);
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border: #344678 1px solid;
+      backface-visibility: hidden;
+    }
+
+    svg {
+      position: absolute;
+      right: 1.5rem;
+      opacity: 0;
+      top: 1.5rem;
+      width: 28px;
+      height: 28px;
+      transition: transform ease 400ms;
+    }
+  }
+}
+
+/* Navigation
+/* ---------------------------------------------------------- */
+
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 30px);
+  gap: 1rem;
+
+  svg {
+    stroke: $color-primary;
+  }
 }
