@@ -12,7 +12,6 @@ const UsesPage = ({ data }, location) => {
   return (
     <Layout title={siteTitle}>
       <SEO title='Uses' />
-
       <article className='post-content page-template no-image'>
         <section className='post-content-body'>
           <h1>Uses</h1>

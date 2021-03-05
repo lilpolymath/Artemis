@@ -20,6 +20,26 @@ production stylesheet in assets/built/screen.scss using gulp dev
 @import 'components/animations.scss';
 @import 'components/prism.scss';
 
+@font-face {
+  font-family: GT Walsheim Pro;
+  src: local('GT Walsheim Pro Regular'), local('GTWalsheimProRegular'),
+    url(../fonts/GTWalsheimProRegular.woff2) format('woff2'),
+    url(../fonts/GTWalsheimProRegular.woff) format('woff'),
+    url(../fonts/GTWalsheimProRegular.ttf) format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: GT Walsheim Pro;
+  src: local('GT Walsheim Pro Bold'), local('GTWalsheimProBold'),
+    url(../fonts/GTWalsheimProBold.woff2) format('woff2'),
+    url(../fonts/GTWalsheimProBold.woff) format('woff'),
+    url(../fonts/GTWalsheimProBold.ttf) format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* Main - Theme styles
 /* ---------------------------------------------------------- */
 
@@ -36,13 +56,10 @@ production stylesheet in assets/built/screen.scss using gulp dev
 
 body {
   overflow-x: hidden;
-  font-family: $font-sans-serif;
+  font-family: $font-serif;
   background-color: $color-bg;
   color: $color-body-font;
   font-size: 1rem;
-  transition: background 0.3s ease-out;
-  transition-delay: 0.25;
-  cursor: none;
 }
 
 main {
@@ -91,7 +108,13 @@ main {
 }
 
 .page-head {
-  padding: calc(15vw + 3rem) 0 10vw;
+  padding: 25vh 0 20vh;
+}
+
+@media (max-width: 850px) {
+  .page-head {
+    padding-bottom: 5vh;
+  }
 }
 
 .error-head {
@@ -152,131 +175,28 @@ main {
 /* Site Navigation
 /* ---------------------------------------------------------- */
 
-.site-head {
-  position: relative;
-  z-index: 300;
-  margin-top: -10px;
-  font-size: 1.35rem;
+@keyframes logo {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
-.site-head-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.site-main-nav {
+  background-color: $color-bg;
+  position: fixed;
+  top: 0;
+  width: 80%;
 }
 
-.site-head-left {
-  position: relative;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-  white-space: nowrap;
-}
+#site-logo {
+  stroke: $color-body-font;
+  height: 5rem;
 
-.nav {
-  display: flex;
-  margin: 0 0 0 -12px;
-  padding: 0;
-  list-style: none;
-}
-
-.site-head li {
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-.site-head-left a,
-.site-head-right a {
-  display: block;
-  margin: 0;
-  padding: 10px 12px;
-  color: $color-body-font;
-  font-weight: 600;
-  opacity: 0.6;
-}
-
-.nav-current a,
-.site-head a:hover {
-  text-decoration: none;
-  opacity: 1;
-}
-
-.site-head-center {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.site-head-logo {
-  flex-shrink: 0;
-  display: block;
-  padding: 10px;
-  color: $color-body-font;
-  font-size: 2.1rem;
-  line-height: 1em;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.site-head-logo:hover {
-  text-decoration: none;
-}
-
-.site-head-logo img {
-  display: block;
-  margin-top: 2px;
-  width: auto;
-  height: 28px;
-}
-
-.site-head-right {
-  position: relative;
-  z-index: 100;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-
-.social-links {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-}
-
-.subscribe-button {
-  display: block;
-  padding: 4px 10px;
-  border: $color-base 1px solid;
-  color: $color-base;
-  font-size: 1.2rem;
-  line-height: 1em;
-  border-radius: 10px;
-  opacity: 0.8;
-}
-
-.subscribe-button:hover {
-  text-decoration: none;
-  opacity: 1;
-}
-
-.rss-button {
-  opacity: 0.4;
-}
-
-.rss-button:hover {
-  opacity: 1;
-}
-
-.rss-button svg {
-  margin-bottom: 1px;
-  height: 2.1rem;
-  fill: $color-base;
+  path {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: logo 2s ease forwards 400ms;
+  }
 }
 
 /* Post Content
@@ -649,53 +569,28 @@ main {
   }
 }
 
-/* Cursor
-/* ---------------------------------------------------------- */
-
-.cursor {
-  width: 50px;
-  height: 50px;
-  pointer-events: none;
-  background-color: $color-primary;
-  border-radius: 50%;
-  color: $color-bg;
-  position: fixed;
-  transition: 450ms ease-out;
-  z-index: 10;
-  mix-blend-mode: difference;
-  animation: cursorName 500ms infinite alternate;
-
-  @media (max-width: '768px') {
-    display: none;
+@keyframes wipe-in-right {
+  from {
+    clip-path: inset(0 100% 0 0);
   }
-}
-
-.cursor2 {
-  width: 10px;
-  height: 10px;
-  transition: 200ms ease-out;
-}
-
-@keyframes logo {
   to {
-    stroke-dashoffset: 0;
+    clip-path: inset(0 0 0 0);
   }
 }
 
-.site-main-nav {
-  background-color: $color-bg;
-  position: fixed;
-  top: 0;
-  width: 80%;
+[transition-style='in:wipe:right'] {
+  animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) wipe-in-right both;
 }
 
-#site-logo {
-  stroke: $color-body-font;
-  height: 5rem;
-
-  path {
-    stroke-dasharray: 300;
-    stroke-dashoffset: 300;
-    animation: logo 2s ease forwards 400ms;
+@keyframes wipe-out-right {
+  from {
+    clip-path: inset(0 0 0 0);
   }
+  to {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+[transition-style='out:wipe:right'] {
+  animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) wipe-out-right both;
 }

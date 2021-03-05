@@ -1,17 +1,13 @@
 {
-  "name": "gatsby-london-after-midnight",
+  "name": "Artemis",
   "private": true,
-  "description": "A custom, image-centric theme for Gatsby",
+  "description": "Portfolio for Bolaji Olajide",
   "version": "1.0.2",
   "author": "Vaporwavy <i@ttv8.me> (https://vaporwavy.io)",
-  "bugs": {
-    "url": "https://github.com/vaporwavy/gatsby-london-after-midnight/issues"
-  },
   "dependencies": {
     "framer-motion": "^3.10.0",
     "gatsby": "^2.4.2",
     "gatsby-image": "^2.0.41",
-    "gatsby-plugin-feed": "^2.2.0",
     "gatsby-plugin-google-analytics": "^2.0.19",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-netlify": "^2.0.17",
@@ -35,10 +31,6 @@
     "react-dom": "^16.8.6",
     "react-feather": "^2.0.9",
     "react-helmet": "^5.2.1",
-    "typeface-alegreya": "^0.0.69",
-    "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.54",
-    "typeface-nunito": "^0.0.72",
     "url-join": "^4.0.0"
   },
   "devDependencies": {
