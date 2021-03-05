@@ -48,6 +48,10 @@ body {
 main {
   min-height: 100vh;
   border-left: 1px solid $color-body-font;
+
+  @media (max-width: 850px) {
+    border: 0;
+  }
 }
 
 .container {
@@ -82,7 +86,7 @@ main {
 
 @media (max-width: 850px) {
   .site-wrapper {
-    padding: 0 10%;
+    padding: 0 5%;
   }
 }
 
@@ -567,6 +571,10 @@ main {
   position: relative;
   padding-bottom: 2rem;
 
+  @media (max-width: 800px) {
+    padding-top: 20%;
+  }
+
   @media (min-width: 800px) {
     &::after {
       content: '';
@@ -641,7 +649,7 @@ main {
   }
 }
 
-/* Navigation
+/* Cursor
 /* ---------------------------------------------------------- */
 
 .cursor {
