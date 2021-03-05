@@ -42,6 +42,7 @@ body {
   font-size: 1rem;
   transition: background 0.3s ease-out;
   transition-delay: 0.25;
+  cursor: none;
 }
 
 main {
@@ -86,7 +87,7 @@ main {
 }
 
 .page-head {
-  padding: 15vw 0 10vw;
+  padding: calc(15vw + 3rem) 0 10vw;
 }
 
 .error-head {
@@ -274,14 +275,13 @@ main {
   fill: $color-base;
 }
 
-
 /* Post Content
 /* ---------------------------------------------------------- */
 
 .post-content {
   max-width: 720px;
   margin: 0 auto;
-  padding: 6vw 0;
+  padding: 6rem 0 6vw;
 }
 
 .post-content-header {
@@ -638,5 +638,56 @@ main {
 
   svg {
     stroke: $color-primary;
+  }
+}
+
+/* Navigation
+/* ---------------------------------------------------------- */
+
+.cursor {
+  width: 50px;
+  height: 50px;
+  pointer-events: none;
+  background-color: $color-primary;
+  border-radius: 50%;
+  color: $color-bg;
+  position: fixed;
+  transition: 450ms ease-out;
+  z-index: 10;
+  mix-blend-mode: difference;
+  animation: cursorName 500ms infinite alternate;
+
+  @media (max-width: '768px') {
+    display: none;
+  }
+}
+
+.cursor2 {
+  width: 10px;
+  height: 10px;
+  transition: 200ms ease-out;
+}
+
+@keyframes logo {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.site-main-nav {
+  background-color: $color-bg;
+  position: fixed;
+  top: 0;
+  width: 80%;
+}
+
+#site-logo {
+  stroke: $color-body-font;
+  height: 5rem;
+
+  path {
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: logo 2s ease forwards 400ms;
   }
 }
