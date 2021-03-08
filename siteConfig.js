@@ -1,10 +1,10 @@
 module.exports = {
   name: 'Bolaji Olajide',
-  shortName: '',
+  shortName: 'Proton',
   description:
-    'I’m a Product Designer and Frontend Engineer based in Lagos, Nigeria. I also love to sing covers, make music and try new things.',
+    'I’m a full-stack software engineer based in Lagos, Nigeria. He currently builds exciting learning experiences with Pluralsight.',
   url: 'https://bolaji.de', // Domain of your site without prefix!
   prefix: '/',
   author: 'bolaji',
-  twitter: '',
+  twitter: 'https://twitter.com/Bolaji___',
 };
